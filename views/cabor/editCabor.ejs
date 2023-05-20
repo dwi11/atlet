@@ -1,0 +1,38 @@
+<!-- Modal -->
+<form action="/cabor/edit" method="POST" enctype="multipart/form-data">
+    <div class="modal fade" id="editCabor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">edit Cabor</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="submit" name="id_cabor" class="product_id2" value="<%= cabor.id_cabor %>">
+                    <%= cabor.id_cabor %>
+                    <div class="row">
+                        <div class="form-group col-md mb-3">
+                            <label for="nama" class="form-label">Nama</label>
+                            <input type="text" class="form-control nama" id="nama" name="nama"  >
+                        </div>
+                        <div class="form-group col-md mb-3">
+                            <label for="fotoCabor" class="form-label">Foto Cabor</label>
+                            <input type="file" class="form-control fotoCabor" id="fotoCabor" name="fotoCabor"  >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md mb-3">
+                            <label for="sarana" class="form-label">Sarana</label>
+                            <textarea type="text" class="form-control sarana" id="sarana" name="sarana"  ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" name="id_cabor" class="form-control product_id2" required />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" name="id_cabor" class="product_id2 btn btn-success">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

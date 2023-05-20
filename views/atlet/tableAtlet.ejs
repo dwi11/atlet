@@ -1,0 +1,98 @@
+<table id="tableAtlet" class="table border" style="width:100%">
+    <thead class="">
+        <tr>
+            <th>No</th>
+            <th>Foto</th>
+            <th>Profil</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+            <% atlet.forEach(function(item, index) { %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td>
+                    <img src="<%= item.fotoAtlet %>" class="img-thumbnail rounded" alt="Foto Atlet" width="70px">                
+                  </td>
+                  <td>
+                    <table style="border-collapse:separate; border: 0px solid #fff !important;">
+                        <tbody>
+                            <tr>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;">Nama</td>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;"><span> : </span> <%= item.nama %></td>
+                            </tr>
+                            <tr>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;">Cabor</td>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;"><span> : </span> <%= item.cabor %></td>
+                            </tr>
+                            <tr>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;">Asal Sekolah</td>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;"><span> : </span> <%= item.asal_sekolah %></td>
+                            </tr>
+                            <tr>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;">Alamat</td>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;"><span> : </span> <%= item.alamat %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </td>
+                  <td>
+                    <div class="btn-group">
+                        <button href="javascript:void(0);" class="btn btn-lg btn-success edit"
+                        data-id="<%= item.id_atlet %>" data-nik="<%= item.nik %>" data-nama="<%= item.nama %>"
+                        data-tempat_lahir="<%= item.tempat_lahir %>" data-tanggal_lahir="<%= item.tanggal_lahir %>"
+                        data-tahun_mulai="<%= item.tahun_mulai %>" data-jenis_kelamin="<%= item.jenis_kelamin %>"
+                        data-alamat="<%= item.alamat %>" data-cabor="<%= item.cabor %>" data-no_telp="<%= item.no_telp %>"
+                        data-ukuran_baju="<%= item.ukuran_baju %>" data-asal_sekolah="<%= item.asal_sekolah %>" 
+                        >
+                            <i class="fa-solid fa-pen-clip"></i>
+                        </button>
+                        <button href="javascript:void(0);" class="btn btn-lg btn-danger delete" type="button" data-id="<%= item.id_atlet %>">
+                            <i class="fa-solid fa-delete-left"></i>
+                        </button>
+                    </div>
+                </td>
+                </tr>
+              <% }); %>
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $("#tableAtlet").on("click", ".delete", function () {
+            var id_atlet = $(this).data("id");
+            $("#deleteAtlet").modal("show");
+            $(".product_id2").val(id_atlet);
+        });
+        $("#tableAtlet").on("click", ".edit", function () {
+        var id_atlet = $(this).data("id");
+            var nama = $(this).data("nama");
+            var nik = $(this).data("nik");
+            var tempat_lahir = $(this).data("tempat_lahir");
+            var tanggal_lahir = $(this).data("tanggal_lahir");
+            var jenis_kelamin = $(this).data("jenis_kelamin");
+            var alamat = $(this).data("alamat");
+            var cabor = $(this).data("cabor");
+            var tahun_mulai = $(this).data("tahun_mulai");
+            var no_telp = $(this).data("no_telp");
+            var ukuran_baju = $(this).data("ukuran_baju");
+            var asal_sekolah = $(this).data("asal_sekolah");
+            var fotoAtlet = $(this).data("fotoAtlet");
+            $("#editAtlet").modal("show");
+            $(".id_atlet").val(id_atlet);
+            $(".nik").val(nik);
+            $(".nama").val(nama);
+            $(".tempat_lahir").val(tempat_lahir);
+            $(".tanggal_lahir").val(tanggal_lahir);
+            $(".tahun_mulai").val(tahun_mulai);
+            $(".jenis_kelamin").val(jenis_kelamin);
+            $(".alamat").val(alamat);
+            $(".cabor").val(cabor);
+            $(".no_telp").val(no_telp);
+            $(".ukuran_baju").val(ukuran_baju);
+            $(".asal_sekolah").val(asal_sekolah);
+            $(".product_id2").val(id_atlet);
+            $(".fotoAtlet").val(fotoAtlet);
+        });
+    });
+</script>

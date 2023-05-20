@@ -1,0 +1,61 @@
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">
+                    <%= title %>
+                </h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active"><%= title %></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg col-6">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <% countAtlet.forEach(function(countAtlet) { %>
+                <h3><%= countAtlet.total %></h3>
+                <% }); %>
+                <p>Jumlah Atlet</p>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-person-walking"></i>
+            </div>
+            <a href="/atlet" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg col-6">
+        <div class="small-box bg-success">
+            <div class="inner">
+                <% countPelatih.forEach(function(countPelatih) { %>
+                    <h3><%= countPelatih.total %></h3>
+                    <% }); %>
+                <p>Jumlah Pelatih</p>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-person-chalkboard"></i>
+            </div>
+            <a href="/pelatih" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-6">
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <% countCabor.forEach(function(countCabor) { %>
+                    <h3><%= countCabor.total %></h3>
+                    <% }); %>
+                <p>Jumlah Cabor</p>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-basketball"></i>
+            </div>
+            <a href="/cabor" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>

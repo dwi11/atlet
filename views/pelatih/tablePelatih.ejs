@@ -1,0 +1,96 @@
+<table id="tablePelatih" class="table border" style="width:100%">
+    <thead class="">
+        <tr>
+            <th>No</th>
+            <th>Foto</th>
+            <th>Profil</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+            <% pelatih.forEach(function(item, index) { %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td>
+                    <img src="<%= item.fotoPelatih %>" class="img-thumbnail rounded" alt="Foto pelatih" width="70px">                
+                  </td>
+                  <td>
+                    <table style="border-collapse:separate; border: 0px solid #fff !important;">
+                        <tbody>
+                            <tr>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;">Nama</td>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;"><span> : </span> <%= item.nama %></td>
+                            </tr>
+                            <tr>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;">Cabor</td>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;"><span> : </span> <%= item.cabor %></td>
+                            </tr>
+                            <tr>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;">Jenis Pelatih</td>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;"><span> : </span> <%= item.jenis_pelatih %></td>
+                            </tr>
+                            <tr>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;">Alamat</td>
+                                <td style="border: #fff; padding-top: 0; padding-bottom: 0;"><span> : </span> <%= item.alamat %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </td>
+                  <td>
+                    <div class="btn-group">
+                        <button href="javascript:void(0);" class="btn btn-lg btn-success edit"
+                        data-id="<%= item.id_pelatih %>" data-nik="<%= item.nik %>" data-nama="<%= item.nama %>"
+                        data-tempat_lahir="<%= item.tempat_lahir %>" data-tanggal_lahir="<%= item.tanggal_lahir %>"
+                        data-tahun_mulai="<%= item.tahun_mulai %>" data-jenis_kelamin="<%= item.jenis_kelamin %>"
+                        data-alamat="<%= item.alamat %>" data-cabor="<%= item.cabor %>" data-no_telp="<%= item.no_telp %>"
+                        data-jenis_pelatih="<%= item.jenis_pelatih %>"
+                        >
+                            <i class="fa-solid fa-pen-clip"></i>
+                        </button>
+                        <button href="javascript:void(0);" class="btn btn-lg btn-danger delete" type="button" data-id="<%= item.id_pelatih %>">
+                            <i class="fa-solid fa-delete-left"></i>
+                        </button>
+                    </div>
+                </td>
+                </tr>
+              <% }); %>
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $("#tablePelatih").on("click", ".delete", function () {
+            var id_pelatih = $(this).data("id");
+            $("#deletePelatih").modal("show");
+            $(".product_id2").val(id_pelatih);
+        });
+        $("#tablePelatih").on("click", ".edit", function () {
+            var id_pelatih = $(this).data("id");
+            var nama = $(this).data("nama");
+            var nik = $(this).data("nik");
+            var tempat_lahir = $(this).data("tempat_lahir");
+            var tanggal_lahir = $(this).data("tanggal_lahir");
+            var jenis_kelamin = $(this).data("jenis_kelamin");
+            var jenis_pelatih = $(this).data("jenis_pelatih");
+            var alamat = $(this).data("alamat");
+            var cabor = $(this).data("cabor");
+            var tahun_mulai = $(this).data("tahun_mulai");
+            var no_telp = $(this).data("no_telp");
+            var fotoPelatih = $(this).data("fotoPelatih");
+            $("#editPelatih").modal("show");
+            $(".id_pelatih").val(id_pelatih);
+            $(".nik").val(nik);
+            $(".nama").val(nama);
+            $(".tempat_lahir").val(tempat_lahir);
+            $(".tanggal_lahir").val(tanggal_lahir);
+            $(".tahun_mulai").val(tahun_mulai);
+            $(".jenis_kelamin").val(jenis_kelamin);
+            $(".jenis_pelatih").val(jenis_pelatih);
+            $(".alamat").val(alamat);
+            $(".cabor").val(cabor);
+            $(".no_telp").val(no_telp);
+            $(".product_id2").val(id_pelatih);
+            $(".fotoPelatih").val(fotoPelatih);
+        });
+    });
+</script>
