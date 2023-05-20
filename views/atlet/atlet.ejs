@@ -1,0 +1,32 @@
+<%- include ('../layouts/header'); %>
+    <%- include ('../navbar'); %>
+
+            <div style="background-color: #f8f9fa">
+                <div class="container-fluid">
+                <%- include ('../box'); %>
+                    <div class="card shadow-sm border">
+                        <div class="card-header bg-info">
+                            <h5 class="card-title text-light">Tabel <%= title %></h5>
+                        </div>
+                        <div class="card-body">
+                            <% if (messages.success) { %>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                  <strong><%- messages.success %></strong>
+                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                              <% } %>
+                              <% if (messages.error) { %>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                  <strong><%- messages.error %></strong>
+                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                              <% } %>
+                            <%- include ('./tableAtlet'); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<%- include ('../layouts/footer'); %>
+<%- include ('./addAtlet'); %>
+<%- include ('./deleteAtlet'); %>
+<%- include ('./editAtlet'); %>

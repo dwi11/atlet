@@ -1,0 +1,35 @@
+<!-- Modal -->
+<form action="/cabor/save" method="POST" enctype="multipart/form-data">
+    <div class="modal fade" id="addCabor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Cabor</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-md mb-3">
+                            <label for="nama" class="form-label">Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama"  >
+                        </div>
+                        <div class="form-group col-md mb-3">
+                            <label for="fotoCabor" class="form-label">Foto Cabor</label>
+                            <input type="file" class="form-control" id="fotoCabor" name="fotoCabor"  >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md mb-3">
+                            <label for="sarana" class="form-label">Sarana</label>
+                            <textarea type="text" class="form-control" id="sarana" name="sarana"  ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,3 +1,40 @@
-body{
-    background-color: #d71313;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap');
+
+:root {
+    --icon-card-size: 20px;
+    --bg-body: #f5f5f9;
+    --font-body: Montserrat;
+    --font-number: #697a8d;
+    --font-text: #566a7f;
+  }
+  
+  :card {
+    --bs-card-spacer-y: 1.5rem;
+    --bs-card-spacer-x: 1.5rem;
+    --bs-card-title-spacer-y: 0.875rem;
+    --bs-card-border-width: 0;
+    --bs-card-border-color: #d9dee3;
+    --bs-card-border-radius: 0.5rem;
+    --bs-card-box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.12);
+    --bs-card-inner-border-radius: 0.5rem;
+    --bs-card-cap-padding-y: 1.5rem;
+    --bs-card-cap-padding-x: 1.5rem;
+    --bs-card-cap-bg: transparent;
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: #fff;
+    --bs-card-img-overlay-padding: 1.5rem;
+    --bs-card-group-margin: 0.8125rem;
+  }
+
+.row .small-box{
+    font-family: var(--font-body);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
