@@ -59,10 +59,10 @@
                             <label for="cabor" class="form-label">Cabor</label>
                             <select class="form-select" id="cabor" name="cabor"  >
                                 <option selected>Cabang Olah Raga</option>
-                                <% cabor.forEach(function(item) { %>
-                                    <option value="<%= item.nama; %>"><%= item.nama; %></option>
-                                </select>
-                                <% }); %>
+                                <% cabor.forEach(function(cabor){ %>
+                                    <option value="<%= cabor.nama %>"><%= cabor.nama %></option>
+                                <%});%>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
