@@ -1,10 +1,11 @@
 <table id="tableAtlet" class="table border" style="width:100%">
+
     <thead class="">
         <tr>
             <th>No</th>
             <th>Foto</th>
             <th>Profil</th>
-            <th>Aksi</th>
+            <th class="dt-print-action-column no-print">Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -37,7 +38,7 @@
                     </table>
                   </td>
                   <td>
-                    <div class="btn-group">
+                    <div class="btn-group no-print">
                         <button href="javascript:void(0);" class="btn btn-lg btn-success edit"
                         data-id="<%= item.id_atlet %>" data-nik="<%= item.nik %>" data-nama="<%= item.nama %>"
                         data-tempat_lahir="<%= item.tempat_lahir %>" data-tanggal_lahir="<%= item.tanggal_lahir %>"

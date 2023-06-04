@@ -3,6 +3,20 @@ var router = express.Router();
 var multer = require("multer");
 var fs = require("fs");
 var connection = require("../config/db");
+var session = require('express-session');
+
+router.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: "rahasia",
+    name: "secretName",
+    cookie: {
+      sameSite: true,
+      maxAge: 60000,
+    },
+  })
+)
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -46,6 +60,9 @@ router.get("/", function (req, res, next) {
               connection.query(" select * from cabor ;", (err, cabor) => {
                 if (err) {
                   return console.log("error: " + err.message);
+                } if (!req.session.username) {
+                  res.redirect('/auth');
+                  return;
                 }
                 res.render("pelatih/pelatih", {
                   title: "Pelatih",
@@ -90,6 +107,9 @@ router.post("/save", upload.single("fotoPelatih"), function (req, res, next) {
       console.error(err);
     } else {
       req.flash("success", "Data berhasil disimpan!");
+    } if (!req.session.username) {
+      res.redirect('/auth');
+      return;
     }
     res.redirect("/pelatih");
   });
@@ -136,6 +156,9 @@ router.post("/edit", upload.single("fotoPelatih"), function (req, res, next) {
       console.error(err);
     } else {
       req.flash("success", "Data berhasil diperbarui!");
+    } if (!req.session.username) {
+      res.redirect('/auth');
+      return;
     }
     res.redirect("/pelatih");
   });
@@ -164,6 +187,9 @@ router.post("/delete", function (req, res) {
           console.error(err);
         } else {
           req.flash("error", "Data berhasil dihapus!");
+        } if (!req.session.username) {
+          res.redirect('/auth');
+          return;
         }
         res.redirect("/pelatih");
       });
