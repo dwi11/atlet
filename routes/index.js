@@ -1,6 +1,20 @@
 var express = require("express");
 var router = express.Router();
 var connection = require("../config/db");
+var session = require('express-session');
+
+router.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: "rahasia",
+    name: "secretName",
+    cookie: {
+      sameSite: true,
+      maxAge: 60000,
+    },
+  })
+)
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -40,8 +54,10 @@ router.get("/", function (req, res, next) {
                     (err, chartTakraw) => {
                       if (err) {
                         return console.log("error: " + err.message);
+                      } if (!req.session.username) {
+                        res.redirect('/auth');
+                        return;
                       }
-                      console.log("ini " + chartTahun);
                       res.render("index", {
                         title: "Dashboard",
                         countAtlet: countAtlet,
